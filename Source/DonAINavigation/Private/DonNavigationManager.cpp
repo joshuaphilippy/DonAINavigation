@@ -1977,8 +1977,8 @@ bool ADonNavigationManager::FindPathSolution_StressTesting(AActor* Actor, FVecto
 	// Input Visualization - I
 	if (DebugParams.DrawDebugVolumes)
 	{
-		DrawDebugPoint_Safe(GetWorld(), Origin,      20.f, FColor::White, true, -1.f);
-		DrawDebugPoint_Safe(GetWorld(), Destination, 20.f, FColor::Green, true, -1.f);
+		DrawDebugPoint_Safe(GetWorld(), Origin, 20.f, FColor::White, DebugParams.LineDuration < 0, DebugParams.LineDuration);
+		DrawDebugPoint_Safe(GetWorld(), Destination, 20.f, FColor::Green, DebugParams.LineDuration < 0, DebugParams.LineDuration);
 	}
 
 	uint64 timerVolumeResolution = DoNNavigation::Debug_GetTimer();
@@ -2918,8 +2918,8 @@ void ADonNavigationManager::VisualizeNAVResult(const TArray<FVector>& PathSoluti
 		previousEntryPoint = entryPoint;
 		entryPoint = PathSolution[i];
 
-		DrawDebugLine_Safe(GetWorld(), previousEntryPoint, entryPoint, LineColor, true, DebugParams.LineDuration, 0.f, DebugParams.LineThickness);
-		DrawDebugPoint_Safe(GetWorld(), entryPoint, 10.f, FColor::Blue, true, DebugParams.LineDuration);
+		DrawDebugLine_Safe(GetWorld(), previousEntryPoint, entryPoint, LineColor, DebugParams.LineDuration < 0, DebugParams.LineDuration, 0.f, DebugParams.LineThickness);
+		DrawDebugPoint_Safe(GetWorld(), entryPoint, 10.f, FColor::Blue, DebugParams.LineDuration < 0, DebugParams.LineDuration);
 	}
 }
 
