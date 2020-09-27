@@ -32,7 +32,8 @@ UBTTask_FlyTo::UBTTask_FlyTo(const FObjectInitializer& ObjectInitializer)
 {
 	NodeName = "Fly To";
 	bNotifyTick = true;
-	
+	bNotifyTaskFinished = true;
+
 	FlightLocationKey.AddVectorFilter(this,		    GET_MEMBER_NAME_CHECKED(UBTTask_FlyTo, FlightLocationKey));
 	FlightResultKey.AddBoolFilter(this,				GET_MEMBER_NAME_CHECKED(UBTTask_FlyTo, FlightResultKey));
 	KeyToFlipFlopWhenTaskExits.AddBoolFilter(this,  GET_MEMBER_NAME_CHECKED(UBTTask_FlyTo, KeyToFlipFlopWhenTaskExits));
